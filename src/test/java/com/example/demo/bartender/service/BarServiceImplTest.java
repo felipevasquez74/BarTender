@@ -23,7 +23,7 @@ import com.example.demo.repository.BartenderRepository;
 import com.example.demo.service.impl.BarServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
-public class BarServiceImplTest {
+class BarServiceImplTest {
 
 	@Mock
 	private BartenderRepository bartenderRepository;
@@ -48,19 +48,19 @@ public class BarServiceImplTest {
 	}
 
 	@Test
-	public void getAllArrays() {
+	void getAllArrays() {
 		when(bartenderRepository.findAll()).thenReturn(Arrays.asList(arraysBartender));
 		assertNotNull(bartenderRepository.findAll());
 	}
 
 	@Test
-	public void getArrayByIdButIsNotPresent() {
+	void getArrayByIdButIsNotPresent() {
 		Optional<ArraysBartender> arraysBartender1 = this.bartenderRepository.findById(6);
 		assertFalse(arraysBartender1.isPresent());
 	}
 
 	@Test
-	public void getPrimeNumbersWhenGetZeroInParameters() {
+	void getPrimeNumbersWhenGetZeroInParameters() {
 		List<Integer> list = barServiceImpl.getPrimeNumbers(0);
 		assertTrue(list.isEmpty());
 	}
