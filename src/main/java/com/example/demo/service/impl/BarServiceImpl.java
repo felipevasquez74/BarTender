@@ -55,7 +55,7 @@ public class BarServiceImpl implements BarService {
 		return response;
 	}
 
-	private List<Integer> getPrimeNumbers(Integer iterations) {
+	public List<Integer> getPrimeNumbers(Integer iterations) {
 		List<Integer> primeNumbers = new ArrayList<>();
 		for (int i = 1; i < iterations * 6; i++) {
 			int count = 0;
