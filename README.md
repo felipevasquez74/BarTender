@@ -7,7 +7,9 @@ El usuario debera ingresar la cantidad de iteraciones que desea y un numero entr
 La aplicacion esta configurada para desplegar en el puerto 8080.
 
 **GET** http://localhost:8080/bartender/iterations=5/stackId=2
+
 iterations = # de iteraciones que se quieren realizar
+
 stackId = pila que se quiere seleccionar de BD
 
 ### Base de datos
