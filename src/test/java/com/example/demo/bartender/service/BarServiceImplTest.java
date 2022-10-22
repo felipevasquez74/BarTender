@@ -1,10 +1,12 @@
 package com.example.demo.bartender.service;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -17,12 +19,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.entity.ArraysBartender;
 import com.example.demo.repository.BartenderRepository;
 import com.example.demo.service.impl.BarServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class BarServiceImplTest {
 
 	@Mock
@@ -33,7 +38,7 @@ class BarServiceImplTest {
 
 	private ArraysBartender arraysBartender;
 
-	@Mock
+	@Autowired
 	private BarServiceImpl barServiceImpl;
 
 	@BeforeEach
@@ -65,4 +70,9 @@ class BarServiceImplTest {
 		assertTrue(list.isEmpty());
 	}
 
+	@Test
+	void getFirstFivePrimerNumbers() {
+		List<Integer> list1 = barServiceImpl.getPrimeNumbers(2);
+		List<Integer> list2 = new ArrayList<>(Arrays.asList(2, 3, 5, 7, 11));
+		assertArrayEquals(list1.toArray(), list2.toArray());	}
 }
